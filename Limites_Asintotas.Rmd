@@ -4,9 +4,9 @@ author: "Wilson Moreno"
 date: "11/21/2019"
 output:
   
+  word_document: default
   html_document:
     df_print: paged
-  word_document: default
   pdf_document: default
 ---
 
