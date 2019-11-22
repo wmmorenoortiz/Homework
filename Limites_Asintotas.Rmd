@@ -1,0 +1,151 @@
+---
+title: "Limites_Asitontas"
+author: "Wilson Moreno"
+date: "11/19/2019"
+output:
+  word_document: default
+  html_document:
+    df_print: paged
+  pdf_document: default
+  
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Asíntotas
+
+**Asíntotas:** En geometría, línea recta que, prolongada indefinidamente, se acerca progresivamente a una curva sin llegar nunca a encontrarla. 
+
+**Nota:** Piense que una asíntota  es como una pared, esta pared puede ser: Horizontal, Vertical u Oblicua. 
+
+
+### Asíntotas Vecticales
+
+Una asíntota  horizontal es una **recta horizontal**, que se la calcula aplicando el limite al infinito.
+
+$$\lim_{x \to +\infty} f(x)   \qquad \text{y} \qquad \lim_{x \to -\infty} f(x)$$
+
+#### Ejemplo:
+Sea
+$$f(x) = \frac{x+1}{x-1}$$
+Calcular la asíntota  horizontal para $f(x)$.
+
+#### Solución:
+Para calcular la asíntota  se debe tomar el limite cuando $x$ tiende a $+\infty$ y $-\infty$, como se sigue:
+
+$$\begin{eqnarray}
+\lim_{x \to +\infty} f(x) & = & \lim_{x \to +\infty} \frac{x+1}{x-1}\\
+                          & = & \lim_{x \to +\infty} \frac{x}{x}\\
+                          & = & \lim_{x \to +\infty} 1\\
+                          & = & 1\\
+\lim_{x \to -\infty} f(x) & = & \lim_{x \to -\infty} \frac{x+1}{x-1}\\
+                          & = & \lim_{x \to -\infty} \frac{x}{x}\\
+                          & = & \lim_{x \to -\infty} 1\\
+                          & = & 1\\                          
+\end{eqnarray}
+$$
+Luego, esta función  tiene una asíntota  horizontal en $y = 1$. Para comprobar la certesa de nuestra afirmación tomemos una tabla de valores:
+
+
+```{r tabla_function}
+library(knitr)
+x1 = seq(100, 1000, 100)
+x2 = seq(1000, 2000, 1000)
+
+x3 = seq(-100, -1000, -100)
+x4 = seq(-1000, -2000, -1000)
+
+y1 = (x1 + 1) / (x1 - 1)
+y2 = (x2 + 1) / (x2 - 1)
+
+y3 = (x3 + 1) / (x3 - 1)
+y4 = (x4 + 1) / (x4 - 1)
+
+datos = data.frame(x1, y1, x2, y2, x3, y3, x4, y4)
+kable(datos, align = 'c')
+``` 
+
+
+Luego, como se puede observar si nos aproximamos al mas o menos infinito la función  $f(x)$ tiende a $1$
+
+
+#### Grafica 
+```{r plot, echo=FALSE}
+library(ggplot2)
+library(gridExtra)
+x = seq(100,20000,1000)
+y = (x+1)/(x-1)
+datos = data.frame(x,y)
+p2 <- ggplot(data = datos,aes(x,y)) + geom_line() + geom_hline(yintercept = 1, color = 'red')
+p1 <- ggplot(data = datos,aes(-x,y)) + geom_line() + geom_hline(yintercept = 1, color = 'red') + xlab("x")
+
+grid.arrange(p1,p2, nrow = 1) 
+``` 
+
+
+#### Ejercicio
++ Encontrar la asíntota horizontal para la siguiente función 
+
+$$g(x) = \frac{x^{2}+2}{x^{3}-1}$$
+*Solución:* 
+$$\begin{eqnarray}
+\lim_{x \to +\infty} g(x) & = & \lim_{x \to +\infty} \\
+                          & = & \lim_{x \to +\infty} \\
+                          & = & \lim_{x \to +\infty} \\
+                          & = & \\
+\lim_{x \to -\infty} g(x) & = & \lim_{x \to -\infty} \\
+                          & = & \lim_{x \to -\infty} \\
+                          & = & \lim_{x \to -\infty} \\
+                          & = & \\                          
+\end{eqnarray}
+$$
+
++ Encontrar la asíntota horizontal para la siguiente función 
+
+$$g(x) = \frac{2x^{2}+8x}{x^{2}-x}$$
+*Solución:* 
+$$\begin{eqnarray}
+\lim_{x \to +\infty} g(x) & = & \lim_{x \to +\infty} \\
+                          & = & \lim_{x \to +\infty} \\
+                          & = & \lim_{x \to +\infty} \\
+                          & = & \\
+\lim_{x \to -\infty} g(x) & = & \lim_{x \to -\infty} \\
+                          & = & \lim_{x \to -\infty} \\
+                          & = & \lim_{x \to -\infty} \\
+                          & = & \\                          
+\end{eqnarray}
+$$
+
++ Encontrar la asíntota horizontal para la siguiente función 
+
+$$g(x) = \sqrt{\frac{x+8}{x-1}}$$
+*Solución:* 
+$$\begin{eqnarray}
+\lim_{x \to +\infty} g(x) & = & \lim_{x \to +\infty} \\
+                          & = & \lim_{x \to +\infty} \\
+                          & = & \lim_{x \to +\infty} \\
+                          & = & \\
+\lim_{x \to -\infty} g(x) & = & \lim_{x \to -\infty} \\
+                          & = & \lim_{x \to -\infty} \\
+                          & = & \lim_{x \to -\infty} \\
+                          & = & \\                          
+\end{eqnarray}
+$$
+
++ Encontrar la asíntota horizontal para la siguiente función
+
+$$g(x) = \frac{\sqrt{x^{}+2}}{x-1}$$
+*Solución:* 
+$$\begin{eqnarray}
+\lim_{x \to +\infty} g(x) & = & \lim_{x \to +\infty} \\
+                          & = & \lim_{x \to +\infty} \\
+                          & = & \lim_{x \to +\infty} \\
+                          & = & \\
+\lim_{x \to -\infty} g(x) & = & \lim_{x \to -\infty} \\
+                          & = & \lim_{x \to -\infty} \\
+                          & = & \lim_{x \to -\infty} \\
+                          & = & \\                          
+\end{eqnarray}
+$$
